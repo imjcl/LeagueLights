@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'rest-client'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
 # Use SCSS for stylesheets
