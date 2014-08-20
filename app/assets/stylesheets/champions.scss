@@ -1,0 +1,30 @@
+.champion {
+  position: relative;
+  height: 200px;
+  .champion-name {
+    z-index: 1;
+  }
+  &:first-child {
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .splash { 
+    max-width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -9999;
+
+    img {
+      margin-top: -50px;
+    }
+  }
+}
