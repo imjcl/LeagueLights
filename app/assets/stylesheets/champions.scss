@@ -1,6 +1,8 @@
 .champion {
   position: relative;
-  height: 200px;
+  max-height: 200px;
+  overflow: hidden;
+
   .champion-name {
     z-index: 1;
   }
@@ -17,7 +19,6 @@
 
   .splash { 
     max-width: 100%;
-    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
