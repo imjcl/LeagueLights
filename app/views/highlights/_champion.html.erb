@@ -1,6 +1,9 @@
-<div class="champion">
+<div class="champion <%= (champion_name champion).downcase %>">
   <h2>
     <%= champion_name champion %><br>
     <small><%= champion_title champion %></small>
   </h2>
+  <p>
+    <%= image_tag("/assets/splash/#{champion_splash champion}") %>
+  </p>
 </div>
