@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'foundation-rails'
 gem 'rest-client'
+gem 'oauth2'
+gem 'youtube_it'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
 # Use SCSS for stylesheets
