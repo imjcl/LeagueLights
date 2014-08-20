@@ -1,5 +1,5 @@
 class HighlightsController < ApplicationController
   def index
-    @test = RiotAPI::Champion.get_free_champions
+    @test = LeagueLights.match_free_champions
   end
 end
