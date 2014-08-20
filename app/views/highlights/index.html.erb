@@ -1,3 +1,5 @@
-<% @champions.each do |champion| %>
-  <%= render partial: 'champion', locals: { champion: champion } %>
-<% end %>
+<div class="container">
+  <% @champions.each do |champion| %>
+    <%= render partial: 'champion', locals: { champion: champion } %>
+  <% end %>
+</div>
