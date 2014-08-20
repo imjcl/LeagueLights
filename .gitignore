@@ -17,3 +17,6 @@
 
 # Ignore all environment variable files.
 /.rbenv-vars
+
+# Ignore assets for now...
+/app/assets/images/splash
