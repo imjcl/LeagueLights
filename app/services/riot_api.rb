@@ -1,5 +1,5 @@
 module RiotAPI
-  BASE_URI = "https://na.api.pvp.net/api/lol/"
+  BASE_URI = "https://na.api.pvp.net/api/lol"
   def self.riot_get endpoint
     JSON.parse RestClient.get "#{BASE_URI}/#{endpoint}"
   end
