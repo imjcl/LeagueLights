@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'highlights#index'
-  
+  get '/(:champion)' => 'highlights#champion_reel', as: :champion
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
