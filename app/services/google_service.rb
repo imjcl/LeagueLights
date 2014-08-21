@@ -1,11 +1,11 @@
 require "google/api_client"
 module GoogleService
-  def self.test
-    client = Google::APIClient.new(key: ENV['GOOGLE_API_KEY'], authorization: nil)
+  def self.get_highlights champion
+    client = Google::APIClient.new(key: ENV['GOOGLE_API_KEY'], authorization: nil, application_name: 'LeagueLights', application_version: '0.0.1')
     youtube = client.discovered_api('youtube', 'v3')
     opts = {}
     opts[:part] = 'id,snippet'
-    opts[:q] = 'ahri highlights'
+    opts[:q] = "league of legends #{champion} highlights"
     opts[:maxResults] = 25
     opts[:publishedAfter] = six_months_ago
     opts[:order] = 'viewCount'
