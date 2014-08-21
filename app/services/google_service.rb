@@ -5,7 +5,7 @@ module GoogleService
     youtube = client.discovered_api('youtube', 'v3')
     opts = {}
     opts[:part] = 'id,snippet'
-    opts[:q] = 'ahri'
+    opts[:q] = 'ahri highlights'
     opts[:maxResults] = 25
     opts[:publishedAfter] = six_months_ago
     opts[:order] = 'viewCount'
@@ -15,7 +15,7 @@ module GoogleService
     result.data.items.each do |sr|
       case sr.id.kind
         when 'youtube#video'  
-          videos.push("#{sr.snippet.title} (#{sr.id.videoId})")
+          videos.push([sr.snippet.title, sr.id.videoId])
       end
     end
 
