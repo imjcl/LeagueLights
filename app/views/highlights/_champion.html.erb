@@ -1,6 +1,6 @@
 <div class="champion <%= (champion_name champion).downcase %>">
   <h2 class="champion-name">
-    <%= champion_name champion %><br>
+    <%= link_to (champion_name champion), champion_path((champion_name champion).downcase) %><br>
     <small><%= champion_title champion %></small>
   </h2>
   <div class="splash <%= (champion_name champion).downcase %>-splash">
