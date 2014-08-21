@@ -5,10 +5,9 @@ module GoogleService
     youtube = client.discovered_api('youtube', 'v3')
     opts = {}
     opts[:part] = 'id,snippet'
-    opts[:q] = "league of legends #{champion} highlights"
+    opts[:q] = "league of legends s4 #{champion} highlight"
     opts[:maxResults] = 25
     opts[:publishedAfter] = six_months_ago
-    opts[:order] = 'viewCount'
 
     videos = []
     result = client.execute(api_method: youtube.search.list, parameters: opts)
