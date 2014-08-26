@@ -29,3 +29,18 @@
     }
   }
 }
+
+.champion-header {
+  max-height: 350px;
+  overflow: hidden;
+}
+
+.highlight-reel {
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.video {
+  position: relative;
+  display: inline-block;
+}
