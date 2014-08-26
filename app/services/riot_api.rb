@@ -18,5 +18,10 @@ module RiotAPI
       endpoint = "static-data/na/v1.2/champion?champData=info&api_key=#{ENV['RIOT_KEY']}"
       RiotAPI::riot_get endpoint
     end
+
+    def self.get_champion_abilities id
+      endpoint ="static-data/na/v1.2/champion/#{id}?champData=spells&api_key=#{ENV['RIOT_KEY']}"
+      RiotAPI::riot_get endpoint
+    end
   end
 end
