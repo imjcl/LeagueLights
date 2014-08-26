@@ -4,8 +4,8 @@ class HighlightsController < ApplicationController
   end
 
   def champion_reel
-    champion = params[:champion] || ""
-    @reel = GoogleService::get_highlights champion
-    @abilities = RiotServices::match_champion_to_id champion
+    @champion = params[:champion] || ""
+    @reel = GoogleService::get_highlights @champion
+    @abilities = RiotServices::match_champion_to_id @champion
   end
 end
