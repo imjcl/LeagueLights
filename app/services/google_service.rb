@@ -21,7 +21,7 @@ module GoogleService
     youtube = client.discovered_api('youtube', 'v3')
     opts = {}
     opts[:part] = 'id,snippet'
-    opts[:q] = "league of legends season 4 #{champion} guide"
+    opts[:q] = "league of legends season 4 #{champion} commentary"
     opts[:maxResults] = 25
     #opts[:publishedAfter] = six_months_ago
     #opts[:order] = 'viewCount'
