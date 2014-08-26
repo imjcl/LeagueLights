@@ -1,13 +1,11 @@
-<% @reel[0..2].each do |r| %>
-  <div class="large-4 columns">
-    <div class="player" id="<%= r[1] %>">
+<div class="champion-header">
+  <%= image_tag("/assets/splash/#{@champion}.jpg") %>
+</div>
+<div class="highlight-reel">
+  <% @reel[0..4].each do |r| %>
+    <div class="video large-4 columns">
+      <div class="player" id="<%= r[1] %>">
+      </div>
     </div>
-  </div>
-<% end %>
-
-<% @abilities["spells"].each do |s| %>
-  <div class="large-6 large-centered columns">
-    <h3><%= s["name"] %></h3>
-    <p><%= s["description"] %></p>
-  </div>
-<% end %>
+  <% end %>
+</div>
