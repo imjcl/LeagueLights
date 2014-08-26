@@ -1,7 +1,23 @@
 require "google/api_client"
 module GoogleService
+  def self.authorize
+    # Setup private key, since rbenv-vars doesn't work with multiline well
+    pk = ENV['GOOGLE_PK'].gsub /\\n/, "\n"
+    key = OpenSSL::PKey::RSA.new pk, 'notasecret'
+    Signet::OAuth2::Client.new(
+      token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
+      audience: 'https://accounts.google.com/o/oauth2/token',
+      scope: 'https://www.googleapis.com/auth/youtube.readonly',
+      issuer: ENV['GOOGLE_PK_CEMAIL'],
+      signing_key: key
+    )
+
+  end
+
   def self.get_highlights champion
-    client = Google::APIClient.new(key: ENV['GOOGLE_API_KEY'], authorization: nil, application_name: 'LeagueLights', application_version: '0.0.1')
+    client = Google::APIClient.new(application_name: 'LeagueLights', application_version: '0.0.1')
+    client.authorization = authorize()
+    client.authorization.fetch_access_token!
     youtube = client.discovered_api('youtube', 'v3')
     opts = {}
     opts[:part] = 'id,snippet'
@@ -18,7 +34,6 @@ module GoogleService
           videos.push([sr.snippet.title, sr.id.videoId])
       end
     end
-
     videos
   end
 
