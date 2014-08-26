@@ -4,3 +4,10 @@
     </div>
   </div>
 <% end %>
+
+<% @abilities["spells"].each do |s| %>
+  <div class="large-6 large-centered columns">
+    <h3><%= s["name"] %></h3>
+    <p><%= s["description"] %></p>
+  </div>
+<% end %>
