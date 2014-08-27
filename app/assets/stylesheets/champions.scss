@@ -40,6 +40,21 @@
   white-space: nowrap;
 }
 
+.highlight-nav {
+  .slick-prev, .slick-next { 
+    position: relative; 
+    font-size: 48px;
+  }
+
+  .slick-prev {
+    float: left;
+  }
+
+  .slick-next {
+    float: right;
+  }
+}
+
 .video {
   position: relative;
   display: inline-block;
