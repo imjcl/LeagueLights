@@ -4,7 +4,7 @@ gem 'foundation-rails'
 gem 'rest-client'
 gem 'google-api-client'
 gem 'swfobject-rails'
-gem 'oauth2'
+gem 'rails_12factor'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
 # Use SCSS for stylesheets
