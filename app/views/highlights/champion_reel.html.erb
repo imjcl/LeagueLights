@@ -2,10 +2,12 @@
   <%= image_tag("/assets/splash/#{@champion}.jpg") %>
 </div>
 <div class="highlight-reel">
-  <% @reel[0..4].each do |r| %>
+  <% @reel.each do |r| %>
     <div class="video large-4 columns">
       <div class="player" id="<%= r[1] %>">
       </div>
     </div>
   <% end %>
 </div>
+
+<div class="large-6 large-centered columns highlight-nav"></div>
