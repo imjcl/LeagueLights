@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'redis'
 gem 'foundation-rails'
 gem 'rest-client'
 gem 'google-api-client'
