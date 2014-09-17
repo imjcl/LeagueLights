@@ -25,13 +25,22 @@ module LeagueLights
   end
 
   def self.match_champion_to_id champion_name
-    champion_info = (RiotAPI::StaticData.get_champion_static_data)["data"]
+    unless REDIS.exists 'static_data'
+      REDIS.set 'static_data', RiotAPI::StaticData.get_champion_static_data
+    end
+    champion_info = (JSON.parse REDIS.get 'static_data')['data']
+
     match = champion_info.select do |k, v| 
       k.downcase == champion_name
     end
 
     id = match[match.keys[0]]["id"]
 
-    RiotAPI::StaticData.get_champion_abilities id
+    unless REDIS.exists "#{id}_ability"
+      REDIS.set "#{id}_ability", (RiotAPI::StaticData.get_champion_abilities id)
+      REDIS.expire "#{id}_ability", 432000
+    end
+
+    abilities = JSON.parse REDIS.get "#{id}_ability"
   end  
 end
