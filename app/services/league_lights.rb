@@ -25,6 +25,9 @@ module LeagueLights
   end
 
   def self.match_champion_to_id champion_name
+    # Adding this just in the event, that we get a direct link with weird casing.
+    champion_name.downcase!
+    
     unless REDIS.exists 'static_data'
       REDIS.set 'static_data', RiotAPI::StaticData.get_champion_static_data
     end
