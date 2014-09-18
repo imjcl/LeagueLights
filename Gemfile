@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'json'
 gem 'redis'
+gem 'sidekiq'
 gem 'foundation-rails'
 gem 'rest-client'
 gem 'google-api-client'
