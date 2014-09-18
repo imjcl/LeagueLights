@@ -36,5 +36,14 @@ module LeagueLights
     end
 
     abilities = JSON.parse REDIS.get "#{id}_ability"
+  end
+
+  def self.list_free_champions
+    list = match_free_champions
+    free_champions = []
+    list.each do |l|
+      free_champions << l.keys.join
+    end
+    free_champions
   end  
 end
