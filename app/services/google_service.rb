@@ -25,16 +25,19 @@ module GoogleService
     opts[:maxResults] = 25
     #opts[:publishedAfter] = six_months_ago
     #opts[:order] = 'viewCount'
-
-    videos = []
-    result = client.execute(api_method: youtube.search.list, parameters: opts)
-    result.data.items.each do |sr|
-      case sr.id.kind
-        when 'youtube#video'  
-          videos.push([sr.snippet.title, sr.id.videoId])
+    unless REDIS.exists "#{champion}-reel"
+      videos = []
+      result = client.execute(api_method: youtube.search.list, parameters: opts)
+      result.data.items.each do |sr|
+        case sr.id.kind
+          when 'youtube#video'  
+            videos.push([sr.snippet.title, sr.id.videoId])
+        end
       end
+      REDIS.set "#{champion}-reel", videos.to_json
+      REDIS.expire "#{champion}-reel", 432000
     end
-    videos
+    videos = JSON.parse REDIS.get "#{champion}-reel"
   end
 
   def self.six_months_ago
